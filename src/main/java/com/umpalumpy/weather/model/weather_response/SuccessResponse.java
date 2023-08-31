@@ -10,13 +10,4 @@ public class SuccessResponse {
 
     private Current current;
 
-    public Boolean isEmpty(){
-        try{
-            return this.location == null || this.current == null;
-        } catch (Exception e) {
-            return true;
-        }
-
-    }
-
 }

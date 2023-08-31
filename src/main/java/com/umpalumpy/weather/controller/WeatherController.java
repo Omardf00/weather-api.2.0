@@ -49,7 +49,7 @@ public class WeatherController {
         } catch (HttpClientErrorException e) {
             ErrorResponse errorResponse = e.getResponseBodyAs(ErrorResponse.class);
             assert errorResponse != null;
-            return ResponseEntity.status(e.getStatusCode()).body(errorResponse.getError());
+            return ResponseEntity.status(e.getStatusCode()).body(errorResponse);
         }
 
         return new ResponseEntity<>(responseOk.getBody(), HttpStatus.OK);

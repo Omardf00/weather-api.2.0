@@ -7,13 +7,4 @@ public class ErrorResponse {
 
     private Error error;
 
-    public Boolean isEmpty(){
-        try{
-            return this.error== null;
-        } catch (Exception e) {
-            return true;
-        }
-
-    }
-
 }
