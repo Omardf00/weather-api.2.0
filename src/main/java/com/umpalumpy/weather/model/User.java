@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 @Entity
@@ -25,6 +26,7 @@ public class User {
     @NotNull
     @NotBlank
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).{6,}$", message = "Password must contain an upper case character, a lower case character, a number and a minimum length of 6 characters")
     private String password;
 
     @ManyToOne
