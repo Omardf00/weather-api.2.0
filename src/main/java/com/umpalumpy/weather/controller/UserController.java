@@ -196,4 +196,30 @@ public class UserController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable("id") int id){
+
+        Map<String, Object> response = new HashMap<>();
+
+        try {
+
+            if(userService.findById(id)==null) {
+                response.put("error", "There's no user with the id " + id);
+                return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+            }
+
+            userService.deleteById(id);
+            response.put("message", "The user has been successfully deleted");
+            return new ResponseEntity<>(response, HttpStatus.OK);
+
+        } catch (DataAccessException e){
+            response.put("error", "We ran into a problem trying to access the database");
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (Exception e) {
+            response.put("error", "The service is not available at the moment");
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
 }
