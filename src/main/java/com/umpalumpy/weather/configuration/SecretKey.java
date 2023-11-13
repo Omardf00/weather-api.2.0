@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Data
 public class SecretKey {
 
-    @Value("MS649eV41fvCWnK8NekOa3VAiBQemlI4")
+    @Value("0D7D63BFBFCD439511974E469264CB35F82F6A44431AB32521C7D31A44EACB58")
     private String secretKey;
 
 }
