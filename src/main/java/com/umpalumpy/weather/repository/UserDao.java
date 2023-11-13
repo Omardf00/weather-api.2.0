@@ -13,7 +13,7 @@ public interface UserDao extends JpaRepository<User, Integer> {
 
     public List<User> findAll();
 
-    public User save(User user);
+	public User save(User user);
 
     public void deleteById(int id);
 
